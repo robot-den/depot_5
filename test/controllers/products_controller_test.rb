@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  fixtures :products
+
   setup do
     @product = products(:one)
     @update = {
@@ -50,5 +52,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to products_url
+  end
+
+  test "product is not valid without a unique title" do
+    product = Product.new(title: products(:ruby).title, description: "yyy", price: 1, image_url: "fred.gif")
+    assert product.invalid?
+    assert_equal ["has already been taken"], product.errors[:title]
   end
 end
