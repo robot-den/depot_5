@@ -36,4 +36,10 @@ class ProductTest < ActiveSupport::TestCase
     ok.each { |name| assert new_product.call(name).valid?, "#{name} shouldn't be invalid" }
     bad.each { |name| assert new_product.call(name).invalid?, "#{name} shouldn't be valid" }
   end
+
+  test "product is not valid without a unique title" do
+    product = Product.new(title: products(:ruby).title, description: "yyy", price: 1, image_url: "fred.gif")
+    assert product.invalid?
+    assert_equal ["has already been taken"], product.errors[:title]
+  end
 end

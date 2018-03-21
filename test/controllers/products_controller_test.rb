@@ -16,6 +16,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get products_url
     assert_response :success
+    assert_select '.list_description', 3
+    assert_select 'dt', 'Programming Ruby 1.9'
+    assert_select '.list_actions a', "Show"
+    assert_select '.list_actions a', "Edit"
+    assert_select '.list_actions a', "Destroy"
+    assert_select 'a', "New product"
   end
 
   test "should get new" do
@@ -52,11 +58,5 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to products_url
-  end
-
-  test "product is not valid without a unique title" do
-    product = Product.new(title: products(:ruby).title, description: "yyy", price: 1, image_url: "fred.gif")
-    assert product.invalid?
-    assert_equal ["has already been taken"], product.errors[:title]
   end
 end
