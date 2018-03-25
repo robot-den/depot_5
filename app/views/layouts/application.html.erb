@@ -19,7 +19,10 @@
           <li><a href="http://www..../faq">Questions</a></li>
           <li><a href="http://www..../news">News</a></li>
           <li><a href="http://www..../contact">Contact</a></li>
-          <li><span class='time'>Time <%= Time.now.strftime('%H:%M') %></span></li>
+          <li><span class='side_line'>Time <%= Time.now.strftime('%H:%M') %></span></li>
+          <% if @root_visit_count && @root_visit_count > 5 %>
+            <li><span class='side_line'>Visited: <%= @root_visit_count %></span></li>
+          <% end %>
         </ul>
       </div>
       <div id="main">
