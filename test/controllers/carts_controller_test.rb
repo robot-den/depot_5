@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class CartsControllerTest < ActionDispatch::IntegrationTest
+  fixtures :carts
+
   setup do
     @cart = carts(:one)
   end
