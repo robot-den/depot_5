@@ -1,4 +1,7 @@
 class StoreController < ApplicationController
+  include CurrentCart
+  before_action :set_cart
+
   def index
     @products = Product.order(:title)
     @root_visit_count = session[:counter].to_i

@@ -8,24 +8,29 @@
   </head>
 
   <body class='<%= controller.controller_name %>'>
-    <div id="banner">
+    <div id='banner'>
       <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
-      <span class="title"><%= @page_title %></span>
+      <span class='title'><%= @page_title %></span>
     </div>
-    <div id="columns">
-      <div id="side">
+    <div id='columns'>
+      <div id='side'>
+        <div id='cart'>
+          <% if @cart %>
+            <%= render(@cart) %>
+          <% end %>
+        </div>
         <ul>
-          <li><a href="http://www....">Home</a></li>
-          <li><a href="http://www..../faq">Questions</a></li>
-          <li><a href="http://www..../news">News</a></li>
-          <li><a href="http://www..../contact">Contact</a></li>
+          <li><a href='http://www....'>Home</a></li>
+          <li><a href='http://www..../faq'>Questions</a></li>
+          <li><a href='http://www..../news'>News</a></li>
+          <li><a href='http://www..../contact'>Contact</a></li>
           <li><span class='side_line'>Time <%= Time.now.strftime('%H:%M') %></span></li>
           <% if @root_visit_count && @root_visit_count > 5 %>
             <li><span class='side_line'>Visited: <%= @root_visit_count %></span></li>
           <% end %>
         </ul>
       </div>
-      <div id="main">
+      <div id='main'>
         <%= yield %>
       </div>
     </div>
