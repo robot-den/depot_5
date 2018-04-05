@@ -15,7 +15,7 @@
     <div id='columns'>
       <div id='side'>
         <div id='cart'>
-          <% if @cart %>
+          <% if @cart && @cart.line_items.count.positive? %>
             <%= render(@cart) %>
           <% end %>
         </div>

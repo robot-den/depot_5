@@ -54,3 +54,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Rails 5.1 has dropped dependency on jQuery from the default stack
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
