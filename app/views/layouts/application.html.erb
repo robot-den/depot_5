@@ -14,11 +14,9 @@
     </div>
     <div id='columns'>
       <div id='side'>
-        <div id='cart'>
-          <% if @cart && @cart.line_items.count.positive? %>
-            <%= render(@cart) %>
-          <% end %>
-        </div>
+        <%= hidden_div_if(@cart.line_items.count.zero?, id: 'cart') do %>
+          <%= render(@cart) %>
+        <% end %>
         <ul>
           <li><a href='http://www....'>Home</a></li>
           <li><a href='http://www..../faq'>Questions</a></li>
