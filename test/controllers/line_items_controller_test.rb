@@ -63,4 +63,12 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to store_index_url
   end
+
+  test "should destroy line_item via AJAX" do
+    assert_difference('LineItem.count', -1) do
+      delete line_item_url(@line_item), params: { product_id: products(:ruby).id }, xhr: true
+    end
+
+    assert_response :success
+  end
 end

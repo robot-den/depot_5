@@ -3,8 +3,14 @@
 <% cache @products do %>
   <% @products.each do |product| %>
     <% cache product do %>
-      <div class="entry">
-        <%= image_tag(product.image_url) %>
+      <% if product == @current_product %>
+        <div class="entry" id="current_product">
+      <% else %>
+        <div class="entry">
+      <% end %>
+        <%= button_to line_items_path(product_id: product), remote: true, style: 'cursor: pointer' do %>
+         <%= image_tag(product.image_url) %>
+        <% end %>
         <h3><%= product.title %></h3>
         <%= sanitize(product.description) %>
         <div class="price_line">
