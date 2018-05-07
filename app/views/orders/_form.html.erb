@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys, prompt: 'Select payment method', id: :order_pay_type %>
+    <%= form.select :pay_type_id, PayType.pluck(:title, :id), prompt: 'Select payment method', id: :order_pay_type %>
   </div>
 
   <div class="actions">

@@ -1,0 +1,5 @@
+<h1><%= "Who bought '#{@product.title}'" %></h1>
+
+<%= "Latest order time is #{@latest_order.created_at}" %>
+<br/>
+<%= "Product included in #{pluralize(@product.orders.count, 'order')}" %>

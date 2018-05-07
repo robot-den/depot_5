@@ -4,10 +4,10 @@ one:
   name: Dave
   address: Address
   email: dave@test.com
-  pay_type: 1
+  pay_type: one
 
 two:
   name: Elisabeth
   address: Address
   email: elisabeth@test.com
-  pay_type: Credit card
+  pay_type: two
