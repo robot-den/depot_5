@@ -67,6 +67,7 @@ class CartsController < ApplicationController
 
   def invalid_cart
     logger.error "Error: attempt to access invalid cart #{params[:id]}"
+    ErrorMailer.invalid_cart_id(params[:id]).deliver_later
     redirect_to store_index_url, notice: 'Invalid cart'
   end
   # Use callbacks to share common setup or constraints between actions.

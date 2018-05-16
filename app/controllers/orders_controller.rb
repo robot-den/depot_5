@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_isnt_empty, only: :new
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :ship]
 
   # GET /orders
   # GET /orders.json
@@ -66,6 +66,17 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def ship
+    respond_to do |format|
+      if @order.update(ship_date: Date.today)
+        OrderMailer.shipped(@order).deliver_later
+        format.html { redirect_to orders_path, notice: "Order ##{@order.id} was successfully shipped!" }
+      else
+        format.html { redirect_to orders_path, notice: "There is some troubles with shipping order ##{@order.id}" }
+      end
     end
   end
 
