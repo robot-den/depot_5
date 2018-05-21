@@ -4,6 +4,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   fixtures :orders
   fixtures :products
   fixtures :pay_types
+  fixtures :users
 
   setup do
     @order = orders(:one)

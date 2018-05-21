@@ -4,6 +4,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   fixtures :products
   fixtures :orders
   fixtures :pay_types
+  fixtures :users
   include ActiveJob::TestHelper
 
   # A user goes to the index page. They select a product, adding it to their

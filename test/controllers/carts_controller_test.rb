@@ -3,6 +3,7 @@ require 'test_helper'
 class CartsControllerTest < ActionDispatch::IntegrationTest
   fixtures :carts
   fixtures :products
+  fixtures :users
 
   setup do
     @cart = carts(:one)

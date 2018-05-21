@@ -3,6 +3,7 @@ require 'test_helper'
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
   fixtures :line_items
   fixtures :products
+  fixtures :users
 
   setup do
     @line_item = line_items(:one)

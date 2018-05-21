@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   fixtures :products
+  fixtures :users
 
   setup do
     @product = products(:one)
