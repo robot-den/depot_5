@@ -10,7 +10,7 @@
   <body class='<%= controller.controller_name %>'>
     <div id='banner'>
       <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
-      <span class='title'><%= @page_title %></span>
+      <span class='title'><%= t('.title') %></span>
     </div>
     <div id='columns'>
       <div id='side'>
@@ -20,10 +20,10 @@
           <% end %>
         <% end %>
         <ul>
-          <li><%= link_to 'Home', store_index_path %></li>
-          <li><a href='http://www..../faq'>Questions</a></li>
-          <li><a href='http://www..../news'>News</a></li>
-          <li><a href='http://www..../contact'>Contact</a></li>
+          <li><%= link_to t('.home'), store_index_path %></li>
+          <li><a href='http://www..../faq'><%= t('.questions') %></a></li>
+          <li><a href='http://www..../news'><%= t('.news') %></a></li>
+          <li><a href='http://www..../contact'><%= t('.contact') %></a></li>
           <li><span class='side_line'>Time <%= Time.now.strftime('%H:%M') %></span></li>
           <% if @root_visit_count && @root_visit_count > 5 %>
             <li><span class='side_line'>Visited: <%= @root_visit_count %></span></li>
