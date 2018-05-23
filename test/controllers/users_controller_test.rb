@@ -12,6 +12,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should redirect if user is not authenticated" do
+    logout
+    get users_url
+    assert_redirected_to login_url
+  end
+
   test "should get new" do
     get new_user_url
     assert_response :success

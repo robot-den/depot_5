@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize
-    redirect_to(login_url, notice: 'Please log in') unless User.find_by(id: session[:user_id])    
+    return if session[:user_id] == '0' && User.count.zero?
+    redirect_to(login_url, notice: 'Please log in') unless User.find_by(id: session[:user_id])
   end
 end

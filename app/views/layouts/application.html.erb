@@ -28,6 +28,15 @@
           <% if @root_visit_count && @root_visit_count > 5 %>
             <li><span class='side_line'>Visited: <%= @root_visit_count %></span></li>
           <% end %>
+
+          <% if session[:user_id] %>
+            <ul>
+              <li><%= link_to 'Orders', orders_path %></li>
+              <li><%= link_to 'Products', products_path %></li>
+              <li><%= link_to 'Users', users_path %></li>
+            </ul>
+            <%= button_to 'Logout', logout_path, method: :delete %>
+          <% end %>
         </ul>
       </div>
       <div id='main'>
