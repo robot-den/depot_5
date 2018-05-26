@@ -37,15 +37,18 @@ en:
       questions: 'Questions'
       news: 'News'
       contact: 'Contact'
+
   store:
     index:
       title_html: 'Your Pragmatic Catalog'
       add_button_html: 'Add to Cart'
+
   carts:
     cart:
       title: 'Your Cart'
       empty: 'Empty cart'
       checkout: 'Checkout'
+
   number:
     currency:
       format:
@@ -54,3 +57,21 @@ en:
         separator: '.'
         delimiter: ','
         format: '%u%n'
+
+  orders:
+    new:
+      legend: 'Please Enter Your Details'
+    form:
+      name: 'Name'
+      address_html: 'Address'
+      email: 'E-mail'
+      pay_type: 'Pay with'
+      pay_prompt_html: 'Select a payment method'
+      submit: 'Place Order'
+  errors:
+    template:
+      body: 'There are problems with the following fields:'
+      header:
+        one: '1 error prohibited this %{model} from being saved:'
+        other: '%{count} errors prohibited this %{model} from being saved:'
+  thanks: 'Thank you for your order'

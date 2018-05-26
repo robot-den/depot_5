@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   end
 
   scope '(:locale)' do
-    root 'store#index', as: 'store_index', via: :all
-
     resources :orders do
       post :ship, on: :member
     end
 
     resources :line_items
     resources :carts
+
+    root 'store#index', as: 'store_index', via: :all
   end
 end
