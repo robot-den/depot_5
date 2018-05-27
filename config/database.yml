@@ -26,6 +26,6 @@ production:
   reconnect: false
   database: depot_production
   pool: 5
-  username: deploy
+  username: <%= Rails.application.secrets.database[:username] %>
   password: <%= Rails.application.secrets.database[:password] %>
   host: localhost
