@@ -21,11 +21,11 @@ es:
   number:
     currency:
       format:
-        unit: '$US'
+        unit: '€'
         precision: 2
         separator: '.'
         delimiter: ','
-        format: '%n&nbsp;%u'
+        format: '%u%n'
 
   orders:
     new:
@@ -37,6 +37,9 @@ es:
       pay_type: 'Forma de pago'
       pay_prompt_html: 'Seleccione un m&eacute;todo de pago'
       submit: 'Realizar Pedido'
+      check: 'el check'
+      credit_card: 'el credit card'
+      purchase_order: 'el purchase order'
 
   activerecord:
     models:

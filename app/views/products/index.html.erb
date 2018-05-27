@@ -12,6 +12,9 @@
           <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
         </dl>
       </td>
+      <td class="list_language">
+        <%= product.language.title %>
+      </td>
       <td class="list_actions">
         <%= link_to 'Show', product %><br/>
         <%= link_to 'Edit', edit_product_path(product) %><br/>

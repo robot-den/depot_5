@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   fixtures :products
   fixtures :users
+  fixtures :languages
 
   setup do
     @product = products(:one)
@@ -10,7 +11,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       title: 'Lorem Ipsum',
       description: 'Description',
       image_url: '7apps.jpg',
-      price: 19.99
+      price: 19.99,
+      language_id: languages(:one).id
     }
   end
 

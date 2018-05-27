@@ -139,7 +139,7 @@ body, body > p, body > ol, body > ul, body > td {
     select, textarea, input {
       margin-left: 0.5em;
     }
-    
+
     .submit {
       margin-left: 4em;
     }
@@ -148,4 +148,9 @@ body, body > p, body > ol, body > ul, body > td {
       display: none
     }
   }
+}
+
+.locale {
+  float: right;
+  margin: -0.25em 0.1em;
 }

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
   fixtures :products
+  fixtures :languages
 
   test "product attributes must not be empty" do
     product = Product.new
@@ -13,7 +14,8 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product price must be positive" do
-    product = Product.new(title: "My Book Title", description: "yyy", image_url: "zzz.jpg")
+    product =
+      Product.new(title: "My Book Title", description: "yyy", image_url: "zzz.jpg", language_id: languages(:one).id)
 
     product.price = -1
     assert product.invalid?
@@ -29,7 +31,13 @@ class ProductTest < ActiveSupport::TestCase
 
   test "image url" do
     new_product = -> (image_url) do
-      Product.new(title: "My Book Title", description: "yyy", price: 1, image_url: image_url)
+      Product.new(
+        title: "My Book Title",
+        description: "yyy",
+        price: 1,
+        image_url: image_url,
+        language_id: languages(:one).id
+      )
     end
     ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/x/y/z/fred.gif }
     bad = %w{ fred.doc fred.gif/more fred.gif.more }
